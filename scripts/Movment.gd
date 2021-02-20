@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 const GRAVITY = 200.0
-const WALK_SPEED = 200
+const WALK_SPEED = 100
 
 var velocity = Vector2()
 
@@ -12,12 +12,16 @@ func _physics_process(delta):
 
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -WALK_SPEED
+		$AnimatedSprite.play("walk_left")
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x =  WALK_SPEED
+		$AnimatedSprite.play("walk_right")
 	elif Input.is_action_just_pressed("space"):
 		velocity.y = -100
 	else:
 		velocity.x = 0
+		$AnimatedSprite.play("default")
+		
 
 	# We don't need to multiply velocity by delta because "move_and_slide" already takes delta time into account.
 
