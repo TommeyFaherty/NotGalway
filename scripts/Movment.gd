@@ -10,10 +10,6 @@ func _physics_process(delta):
 	velocity.x = 0
 	velocity.y += delta * GRAVITY
 
-	# jump if space pressed
-	if Input.is_action_just_pressed("space"):
-		velocity.y = -100
-
 	# Animations and movement lumped together 
 	# Best to separate them
 	if Input.is_action_pressed("space"):
@@ -36,6 +32,10 @@ func _physics_process(delta):
 		velocity.x = 0
 		$AnimatedSprite.play("default")
 		$AnimatedSprite.flip_h = false
+		
+	# jump if space pressed
+	if Input.is_action_just_pressed("space"):
+		velocity.y = -100
 		
 
 	# We don't need to multiply velocity by delta because "move_and_slide" already takes delta time into account.
