@@ -10,17 +10,32 @@ func _physics_process(delta):
 	velocity.x = 0
 	velocity.y += delta * GRAVITY
 
-	if Input.is_action_pressed("ui_left"):
+	# jump if space pressed
+	if Input.is_action_just_pressed("space"):
+		velocity.y = -100
+
+	# Animations and movement lumped together 
+	# Best to separate them
+	if Input.is_action_pressed("space"):
+		$AnimatedSprite.play("jump")
+	elif Input.is_action_pressed("left_shift") and Input.is_action_pressed(("ui_left")):
+		$AnimatedSprite.play("run_left")
+		velocity.x = -(WALK_SPEED + 50)
+		$AnimatedSprite.flip_h = false
+	elif Input.is_action_pressed("left_shift") and Input.is_action_pressed(("ui_right")):
+		$AnimatedSprite.flip_h = true
+		$AnimatedSprite.play("run_left")
+		velocity.x = WALK_SPEED + 50
+	elif Input.is_action_pressed("ui_left"):
 		velocity.x = -WALK_SPEED
 		$AnimatedSprite.play("walk_left")
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x =  WALK_SPEED
 		$AnimatedSprite.play("walk_right")
-	elif Input.is_action_just_pressed("space"):
-		velocity.y = -100
 	else:
 		velocity.x = 0
 		$AnimatedSprite.play("default")
+		$AnimatedSprite.flip_h = false
 		
 
 	# We don't need to multiply velocity by delta because "move_and_slide" already takes delta time into account.
