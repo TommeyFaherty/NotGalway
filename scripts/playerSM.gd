@@ -3,6 +3,7 @@ extends "res://scripts/state_machine.gd"
 func _ready():
 	add_state('idle')
 	add_state('run')
+	add_state('walk')
 	add_state('fall')
 	add_state('jump')
 	add_state('attack')
@@ -18,11 +19,13 @@ func _input(event):
 	if state == states.jump:	
 		if event.is_action_released("space") && parent.velocity.y < 0:
 			parent.velocity.y = 0
+			
 
 func _state_logic(delta):
-	parent.handle_move_input()
-	parent.apply_gravity()
-	parent.apply_movement()
+	parent._handle_move_input()
+	parent._running_input()
+	parent._apply_gravity(delta)
+	parent._apply_movement()
 	
 func _get_transition(delta):
 	match state:
@@ -32,14 +35,28 @@ func _get_transition(delta):
 					return states.jump
 				elif parent.velocity.y > 0:
 					return states.fall
-			elif parent.velocity.x != 0:
-				return state.run
+			elif parent.velocity.x != 0 && parent.is_running == false:
+				return states.walk
+			elif parent.velocity.x != 0 && parent.is_running == true:
+				return states.run
+		states.walk:
+			if !parent.is_on_floor():
+				if parent.velocity.y < 0:	
+					return states.jump
+				elif parent.velocity.y > 0:
+					return states.fall
+			elif parent.velocity.x != 0 && parent.is_running == true:
+				return states.run
+			elif parent.velocity.x == 0:
+				return states.idle
 		states.run:
 			if !parent.is_on_floor():
 				if parent.velocity.y < 0:	
 					return states.jump
 				elif parent.velocity.y > 0:
 					return states.fall
+			elif parent.velocity.x != 0 && parent.is_running == false:
+				return states.walk
 			elif parent.velocity.x == 0:
 				return states.idle
 		states.jump:
@@ -55,17 +72,18 @@ func _get_transition(delta):
 				
 	return null
 		
-	
 func _enter_state(new_state, old_state):
 	match new_state:
 		states.idle:
 			parent.anim_player.play("idle")
+		states.walk:
+			parent.anim_player.play("walk_left")
 		states.run:
-			parent.anim_player.play("run")
+			parent.anim_player.play("run_left")
 		states.jump:
 			parent.anim_player.play("jump")
 		states.fall:
-			parent.anim_player.play("fall")
+			parent.anim_player.play("jump")
 	
 func _exit_state(old_state, new_state):
 	pass

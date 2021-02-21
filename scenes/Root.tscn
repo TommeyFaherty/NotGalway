@@ -1,8 +1,8 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/img/environments/samkple drawing.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/img/characters/example/Walking towards.png" type="Texture" id=2]
-[ext_resource path="res://scripts/Player.gd" type="Script" id=3]
+[ext_resource path="res://scripts/playerSM.gd" type="Script" id=3]
 [ext_resource path="res://assets/img/characters/example/run_left/run1.png" type="Texture" id=4]
 [ext_resource path="res://assets/img/characters/example/run_left/run2.png" type="Texture" id=5]
 [ext_resource path="res://assets/img/characters/example/run_left/run3.png" type="Texture" id=6]
@@ -23,6 +23,7 @@
 [ext_resource path="res://assets/img/characters/example/attack/punch5.png" type="Texture" id=21]
 [ext_resource path="res://assets/img/characters/example/attack/punch6.png" type="Texture" id=22]
 [ext_resource path="res://assets/img/characters/example/attack/punch1.png" type="Texture" id=23]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=24]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -83,11 +84,12 @@ polygon = PoolVector2Array( -13.5028, 649.139, 22.519, 692.577, 69.1353, 726.48,
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 61.6708, 281.061 )
 scale = Vector2( 2, 2 )
-script = ExtResource( 3 )
+script = ExtResource( 24 )
 
 [node name="Body" type="Node2D" parent="Player"]
 position = Vector2( -30.8354, -140.531 )
 scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Player/Body"]
 visible = false
