@@ -12,13 +12,14 @@ onready var anim_player = $Body/AnimatedSprite
 var is_grounded
 var is_running
 var move_direction
+var attacking
 	
 func _handle_move_input():
 	move_direction = -int(Input.is_action_pressed("ui_left")) + int(Input.is_action_pressed("ui_right"))
 	velocity.x = lerp(velocity.x, WALK_SPEED * move_direction, 0.2)
 	if move_direction > 0:
 		$Body/AnimatedSprite.flip_h = true
-	else:
+	elif move_direction < 0:
 		$Body/AnimatedSprite.flip_h = false
 	
 #func _physics_process(delta):
@@ -44,6 +45,11 @@ func _running_input():
 		is_running = true
 	else:
 		is_running = false
+		
+	if Input.is_action_pressed("E_key"):
+		attacking = true
+	if Input.is_action_just_released("E_key"):
+		attacking = false
 
 func _apply_gravity(delta):
 	velocity.y += delta * GRAVITY

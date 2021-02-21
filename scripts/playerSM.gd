@@ -10,7 +10,7 @@ func _ready():
 	call_deferred("set_state", states.idle)
 
 func _input(event):
-	if [states.idle, states.run].has(state):
+	if [states.idle, states.walk, states.run].has(state):
 		# Jump
 		if event.is_action_pressed("space") && parent.is_on_floor():
 			parent.velocity.y = parent.JUMP_HEIGHT
@@ -35,12 +35,16 @@ func _get_transition(delta):
 					return states.jump
 				elif parent.velocity.y > 0:
 					return states.fall
+			elif parent.attacking == true:
+				return states.attack
 			elif parent.velocity.x != 0 && parent.is_running == false:
 				return states.walk
 			elif parent.velocity.x != 0 && parent.is_running == true:
 				return states.run
 		states.walk:
-			if !parent.is_on_floor():
+			if parent.attacking == true:
+				return states.attack
+			elif !parent.is_on_floor():
 				if parent.velocity.y < 0:	
 					return states.jump
 				elif parent.velocity.y > 0:
@@ -50,7 +54,9 @@ func _get_transition(delta):
 			elif parent.velocity.x == 0:
 				return states.idle
 		states.run:
-			if !parent.is_on_floor():
+			if parent.attacking == true:
+				return states.attack
+			elif !parent.is_on_floor():
 				if parent.velocity.y < 0:	
 					return states.jump
 				elif parent.velocity.y > 0:
@@ -69,6 +75,12 @@ func _get_transition(delta):
 				return states.idle
 			elif parent.velocity.y < 0:
 				return states.jump
+		states.attack:
+			if parent.attacking == false:
+				if parent.is_on_floor():
+					return states.idle
+				elif parent.velocity.y >= 0:
+					return states.fall
 				
 	return null
 		
@@ -84,6 +96,8 @@ func _enter_state(new_state, old_state):
 			parent.anim_player.play("jump")
 		states.fall:
 			parent.anim_player.play("jump")
+		states.attack:
+			parent.anim_player.play("attack")
 	
 func _exit_state(old_state, new_state):
 	pass
