@@ -45,4 +45,4 @@ func _physics_process(delta):
 	# In the case of a 2D platformer, in Godot, upward is negative y, which translates to -1 as a normal.
 	move_and_slide(velocity, Vector2(0, -1))
 	velocity = move_and_slide(velocity)
-	print(is_on_floor())
+	#print(is_on_floor())
