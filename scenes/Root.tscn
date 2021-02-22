@@ -26,6 +26,7 @@
 [ext_resource path="res://assets/img/characters/example/Dummy.png" type="Texture" id=24]
 [ext_resource path="res://icon.png" type="Texture" id=25]
 
+
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
