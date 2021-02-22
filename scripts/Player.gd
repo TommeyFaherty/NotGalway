@@ -45,7 +45,7 @@ func _running_input():
 		is_running = true
 	else:
 		is_running = false
-		
+	
 	if Input.is_action_pressed("E_key"):
 		attacking = true
 	if Input.is_action_just_released("E_key"):
