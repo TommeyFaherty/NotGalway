@@ -27,7 +27,6 @@ func _exit_state(old_state, new_state):
 	pass
 	
 func set_state(new_state):
-	print(new_state)
 	previous_state = state
 	state = new_state
 	
