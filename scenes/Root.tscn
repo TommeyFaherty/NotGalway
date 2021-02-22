@@ -1,64 +1,65 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/img/environments/samkple drawing.jpg" type="Texture" id=1]
-[ext_resource path="res://assets/img/characters/example/Walking towards.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://scripts/playerSM.gd" type="Script" id=3]
-[ext_resource path="res://assets/img/characters/example/run_left/run1.png" type="Texture" id=4]
-[ext_resource path="res://assets/img/characters/example/run_left/run2.png" type="Texture" id=5]
-[ext_resource path="res://assets/img/characters/example/run_left/run3.png" type="Texture" id=6]
-[ext_resource path="res://assets/img/characters/example/run_left/run4.png" type="Texture" id=7]
-[ext_resource path="res://assets/img/characters/example/walk_right/walk1.png" type="Texture" id=8]
-[ext_resource path="res://assets/img/characters/example/walk_right/walk2.png" type="Texture" id=9]
-[ext_resource path="res://assets/img/characters/example/walk_right/walk3.png" type="Texture" id=10]
-[ext_resource path="res://assets/img/characters/example/walk_left/walk1.png" type="Texture" id=11]
-[ext_resource path="res://assets/img/characters/example/walk_left/walk2.png" type="Texture" id=12]
-[ext_resource path="res://assets/img/characters/example/walk_left/walk3.png" type="Texture" id=13]
-[ext_resource path="res://assets/img/characters/example/jump/jump0.png" type="Texture" id=14]
-[ext_resource path="res://assets/img/characters/example/jump/jump1.png" type="Texture" id=15]
-[ext_resource path="res://assets/img/characters/example/Dummy.png" type="Texture" id=16]
-[ext_resource path="res://scenes/example_tile.tres" type="TileSet" id=17]
-[ext_resource path="res://assets/img/characters/example/attack/punch3.png" type="Texture" id=18]
-[ext_resource path="res://assets/img/characters/example/attack/punch4.png" type="Texture" id=19]
-[ext_resource path="res://assets/img/characters/example/attack/punch2.png" type="Texture" id=20]
-[ext_resource path="res://assets/img/characters/example/attack/punch5.png" type="Texture" id=21]
-[ext_resource path="res://assets/img/characters/example/attack/punch6.png" type="Texture" id=22]
-[ext_resource path="res://assets/img/characters/example/attack/punch1.png" type="Texture" id=23]
-[ext_resource path="res://scripts/Player.gd" type="Script" id=24]
+[ext_resource path="res://assets/img/characters/example/Walking towards.png" type="Texture" id=4]
+[ext_resource path="res://assets/img/characters/example/attack/punch1.png" type="Texture" id=5]
+[ext_resource path="res://assets/img/characters/example/attack/punch2.png" type="Texture" id=6]
+[ext_resource path="res://assets/img/characters/example/attack/punch3.png" type="Texture" id=7]
+[ext_resource path="res://assets/img/characters/example/attack/punch4.png" type="Texture" id=8]
+[ext_resource path="res://assets/img/characters/example/attack/punch5.png" type="Texture" id=9]
+[ext_resource path="res://assets/img/characters/example/attack/punch6.png" type="Texture" id=10]
+[ext_resource path="res://assets/img/characters/example/jump/jump0.png" type="Texture" id=11]
+[ext_resource path="res://assets/img/characters/example/jump/jump1.png" type="Texture" id=12]
+[ext_resource path="res://assets/img/characters/example/run_left/run1.png" type="Texture" id=13]
+[ext_resource path="res://assets/img/characters/example/run_left/run2.png" type="Texture" id=14]
+[ext_resource path="res://assets/img/characters/example/run_left/run3.png" type="Texture" id=15]
+[ext_resource path="res://assets/img/characters/example/run_left/run4.png" type="Texture" id=16]
+[ext_resource path="res://assets/img/characters/example/walk_right/walk1.png" type="Texture" id=17]
+[ext_resource path="res://assets/img/characters/example/walk_right/walk2.png" type="Texture" id=18]
+[ext_resource path="res://assets/img/characters/example/walk_right/walk3.png" type="Texture" id=19]
+[ext_resource path="res://assets/img/characters/example/walk_left/walk1.png" type="Texture" id=20]
+[ext_resource path="res://assets/img/characters/example/walk_left/walk2.png" type="Texture" id=21]
+[ext_resource path="res://assets/img/characters/example/walk_left/walk3.png" type="Texture" id=22]
+[ext_resource path="res://scenes/example_tile.tres" type="TileSet" id=23]
+[ext_resource path="res://assets/img/characters/example/Dummy.png" type="Texture" id=24]
+[ext_resource path="res://icon.png" type="Texture" id=25]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 23 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "attack",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "run_left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": false,
 "name": "jump",
 "speed": 2.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
-"name": "walk_left",
+"name": "run_left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 18 ) ],
 "loop": true,
 "name": "walk_right",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "walk_left",
+"speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 6.75171
 height = 14.3614
 
@@ -84,7 +85,8 @@ polygon = PoolVector2Array( -13.5028, 649.139, 22.519, 692.577, 69.1353, 726.48,
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 61.6708, 281.061 )
 scale = Vector2( 2, 2 )
-script = ExtResource( 24 )
+collision_layer = 2
+script = ExtResource( 2 )
 
 [node name="Body" type="Node2D" parent="Player"]
 position = Vector2( -30.8354, -140.531 )
@@ -95,17 +97,17 @@ script = ExtResource( 3 )
 visible = false
 position = Vector2( 61.6708, 281.061 )
 scale = Vector2( 0.02, 0.02 )
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player/Body"]
 position = Vector2( 61.6708, 281.061 )
 scale = Vector2( 0.02, 0.02 )
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2( 1.03717, -3.63348 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 2.75436, -7.17831 )
@@ -136,16 +138,29 @@ scale = Vector2( 0.38, 0.191 )
 enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 17 )
+tile_set = ExtResource( 23 )
 format = 1
 tile_data = PoolIntArray( 327685, 0, 0, 327686, 0, 0, 393230, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458765, 0, 0, 458766, 0, 0 )
 
 [node name="dummy" type="KinematicBody2D" parent="."]
 position = Vector2( 626.222, 415.943 )
+collision_layer = 4
 
 [node name="Sprite" type="Sprite" parent="dummy"]
 scale = Vector2( 0.02, 0.02 )
-texture = ExtResource( 16 )
+texture = ExtResource( 24 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dummy"]
 polygon = PoolVector2Array( -3.87946, -13.8182, -9.19342, -10.1932, -9.91809, -3.31824, -9.91809, -3.31824, -23.3239, -0.0682373, -23.2031, 1.93176, -20.3046, 4.55676, -10.5219, 9.30676, -7.74414, 19.1818, -9.31421, 29.4318, -7.74414, 30.8068, 10.4926, 31.0568, 11.821, 27.3068, 9.76788, 23.0568, 6.14471, 17.6818, 7.47321, 10.5568, 15.0819, 3.80676, 21.4829, 0.931763, 19.7921, -0.443237, 4.69543, -5.94324, 5.54083, -8.69324, 3.72925, -11.9432, 0.468384, -13.8182 )
+
+[node name="icon" type="Sprite" parent="dummy"]
+position = Vector2( -12.6954, -158.987 )
+texture = ExtResource( 25 )
+
+[node name="icon2" type="Sprite" parent="dummy"]
+position = Vector2( -271.633, -236.987 )
+texture = ExtResource( 25 )
+
+[node name="icon3" type="Sprite" parent="dummy"]
+position = Vector2( -409.797, 160.013 )
+texture = ExtResource( 25 )
