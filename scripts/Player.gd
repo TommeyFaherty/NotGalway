@@ -19,20 +19,10 @@ func _handle_move_input():
 	velocity.x = lerp(velocity.x, WALK_SPEED * move_direction, 0.2)
 	if move_direction > 0:
 		$Body/AnimatedSprite.flip_h = true
+		$Body/Area2D.rotation_degrees = 0
 	elif move_direction < 0:
 		$Body/AnimatedSprite.flip_h = false
-	
-#func _physics_process(delta):
-#	_handle_move_input()
-#	_running_input()
-#	_apply_gravity(delta)
-##	_apply_movement()
-	
-#	is_grounded = _check_is_grounded()
-
-#func _input(event):
-#	if event.is_action_pressed("space") && is_grounded:
-#		velocity.y = JUMP_HEIGHT
+		$Body/Area2D.rotation_degrees = 180
 
 func _running_input():
 	# Animations and movement lumped together 
@@ -48,8 +38,10 @@ func _running_input():
 	
 	if Input.is_action_pressed("E_key"):
 		attacking = true
+		$Body/Area2D.monitoring = true
 	if Input.is_action_just_released("E_key"):
 		attacking = false
+		$Body/Area2D.monitoring = false
 
 func _apply_gravity(delta):
 	velocity.y += delta * GRAVITY
