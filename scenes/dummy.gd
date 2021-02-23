@@ -28,7 +28,7 @@ func UpdateHp(new_hp):
 
 
 func Hurt():
-	
+	#Hurt animation AND character invulnerability while in hitstun
 	$AnimationPlayer.play("hurt")
 	
 
