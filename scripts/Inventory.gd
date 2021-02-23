@@ -1,9 +1,20 @@
 extends Node2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
-# Called when the node enters the scene tree for the first time.
-func add_item():
-	print("hello!")
+var item = "item_name"
+var item_ammount : int
+var inventory = {}
+
+func _ready():
+	inventory["hp_potion"] = 999
+	inventory["chicken_wings"] = 23
+
+
+
+func add_item(new_item, item_ammount):
+	
+	#Check to see if item in inventory
+	if inventory[new_item] == true:
+		inventory[new_item] = item_ammount
+	
+	
