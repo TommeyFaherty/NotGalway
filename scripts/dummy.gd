@@ -23,15 +23,12 @@ func UpdateHp(new_hp):
 	#print(current_hp)
 	#When "new_hp" is negative (taking damage)
 	if new_hp < 0:
-		Hurt()
+		if current_hp <= 0:
+			Dead()
+		else:
+			Hurt()
 	#When hp reaches 0
-	if current_hp <= 0:
-		Dead()
-
-
-
-
-
+	
 
 func Hurt():
 	#Hurt animation AND character invulnerability while in hitstun
@@ -51,7 +48,7 @@ func Dead():
 
 func Hp():
 	#Doesn't let Hp go below 0
-	if current_hp < 0:
+	if current_hp <= 0:
 		current_hp = 0
 	
 	#Doesn't let Hp go higher than max hp
@@ -60,10 +57,11 @@ func Hp():
 	#GREEN HP BAR
 	hp_bar.value = (current_hp / max_hp) * 100
 	#print( (current_hp / max_hp) * 100)
+	print(current_hp)
 	#RED DAMAGE BAR
 	damage_bar.value = (old_hp / max_hp) * 100
 	#RED DAMAGE BAR DELAY
 	if old_hp > current_hp:
 		old_hp -= 0.05
-		yield(get_tree().create_timer(0.5), "timeout")
+		#yield(get_tree().create_timer(0.5), "timeout")
 		return
