@@ -27,3 +27,5 @@ func _on_Area2D_body_entered(body):
 		body.get_node("Inventory").GoldUpdate(coin_value)
 		#EXIT GAME
 		self.visible = false
+		$CollisionShape2D.disabled = true
+		$Area2D/CollisionShape2D.disabled = true
