@@ -16,4 +16,4 @@ func _on_Area2D_body_entered(body):
 	#Check to see if body detected is player
 	if body.collision_layer ==  2:
 		body.get_node("Inventory").add_item(item_name,item_ammount)
-		queue_free()
+		self.visible = false

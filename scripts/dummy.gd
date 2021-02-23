@@ -64,7 +64,7 @@ func Dead():
 	
 	#Remove the dummy from the game
 	yield(get_tree().create_timer(3.0), "timeout")
-	queue_free()
+	self.visible = false
 
 
 
