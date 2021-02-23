@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://scripts/playerSM.gd" type="Script" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://assets/img/characters/example/walk_right/walk1.png" type="Texture" id=19]
 [ext_resource path="res://assets/img/characters/example/walk_right/walk2.png" type="Texture" id=20]
 [ext_resource path="res://assets/img/characters/example/walk_right/walk3.png" type="Texture" id=21]
+[ext_resource path="res://scripts/Inventory.gd" type="Script" id=22]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -129,4 +130,5 @@ scale = Vector2( 0.38, 0.191 )
 enabled = true
 
 [node name="Inventory" type="Node2D" parent="."]
+script = ExtResource( 22 )
 [connection signal="body_entered" from="Body/Area2D" to="." method="_on_Area2D_body_entered"]

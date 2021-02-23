@@ -57,7 +57,7 @@ func Hp():
 	#GREEN HP BAR
 	hp_bar.value = (current_hp / max_hp) * 100
 	#print( (current_hp / max_hp) * 100)
-	print(current_hp)
+	#print(current_hp)
 	#RED DAMAGE BAR
 	damage_bar.value = (old_hp / max_hp) * 100
 	#RED DAMAGE BAR DELAY
