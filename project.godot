@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "StateMachine",
 "language": "GDScript",
-"path": "res://scripts/state_machine.gd"
+"path": "res://globals/state_machine.gd"
 } ]
 _global_script_class_icons={
 "StateMachine": ""
@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Not Galway"
-run/main_scene="res://scenes/Root.tscn"
+run/main_scene="res://scenes/example/Root.tscn"
 config/icon="res://icon.png"
 
 [input]
