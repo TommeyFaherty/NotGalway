@@ -14,31 +14,24 @@ func _ready():
 func EmptyBin():
 	if bin_list.size() > 1:
 		var node_to_bin
-		
 		print("deleting... " + str(bin_list[1]))
-		#print(bin_list[1])
-		#print(get_node(str(bin_list[1])))
-		get_parent().get_node(bin_list[1]).queue_free()
-		#get_parent().get_node("Player").queue_free()
+		get_parent().get_node(str(bin_list[1])).queue_free()
+		#print(get_node(bin_list[1]))
 		bin_list.remove(1)
 		
-		
-		#print(bin_list[int(bin_list.size()) - 1])
-		#print(bin_list[1])
-		
-		#INTERVALS AT WHICH OBJECTS ARE DELETED
+		#INTERVAL TIME
 		var timer = Timer.new()
 		add_child(timer)
-		timer.start(2)
+		timer.start(0.5)
 		timer.autostart = true
 		timer.one_shot = true
 		timer.connect("timeout",self,"BinEmptied")
 	else:
-		#INTERVALS AT WHICH OBJECTS ARE DELETED
-		print("Bin was empty")
+		#INTERVAL TIME
+		#print("Bin was empty")
 		var timer = Timer.new()
 		add_child(timer)
-		timer.start(2)
+		timer.start(0.5)
 		timer.autostart = true
 		timer.one_shot = true
 		timer.connect("timeout",self,"BinEmptied")

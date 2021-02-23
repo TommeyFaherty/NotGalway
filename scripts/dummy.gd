@@ -6,6 +6,7 @@ var no_of_drops = 1
 var COIN = preload("res://scenes/Coin.tscn")
 var no_of_coins = 10
 
+var dead = false
 
 onready var hp_bar = $TextureProgress
 onready var damage_bar = $TextureProgress2
@@ -57,13 +58,14 @@ func Dead():
 		get_parent().add_child(gold_drop)
 		gold_drop.position = self.position + Vector2(0,-10)
 		no_of_coins -= 1
-		yield(get_tree().create_timer(0.5), "timeout")
+		yield(get_tree().create_timer(1), "timeout")
 		return
-		
-	
+	else: 
+		if dead == false:
 	#Remove the dummy from the game
-	yield(get_tree().create_timer(3.0), "timeout")
-	self.visible = false
+			dead = true
+			self.visible = false
+			get_parent().get_node("Bin").AddToBin(self.name)
 	
 
 

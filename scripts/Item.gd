@@ -18,4 +18,4 @@ func _on_Area2D_body_entered(body):
 			dead = true
 			#Adding Item
 			body.get_node("Inventory").add_item(item_name,item_ammount)
-			
+			get_parent().get_node("Bin").AddToBin(self.name)
