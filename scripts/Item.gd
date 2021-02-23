@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 var item_name = "dummy_corpse"
-var item_ammount = 1
+var item_ammount = 3
 
 
 

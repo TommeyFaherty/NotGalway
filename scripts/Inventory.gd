@@ -1,8 +1,7 @@
 extends Node2D
 
 
-var item = "item_name"
-var item_ammount : int
+
 var inventory = {}
 
 func _ready():
@@ -11,10 +10,16 @@ func _ready():
 
 
 
-func add_item(new_item, item_ammount):
+func add_item(new_item, received_ammount):
+	var existing_ammount 
 	
-	#Check to see if item in inventory
-	if inventory[new_item] == true:
-		inventory[new_item] = item_ammount
+	
+	if new_item in inventory:
+		existing_ammount = inventory[new_item]
+		inventory[new_item] = existing_ammount + received_ammount
+	else:
+		inventory[new_item] = received_ammount
+	
+	print(inventory)
 	
 	
