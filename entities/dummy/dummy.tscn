@@ -1,0 +1,146 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://entities/dummy/dummy.gd" type="Script" id=1]
+[ext_resource path="res://entities/player/example/Dummy.png" type="Texture" id=2]
+[ext_resource path="res://assets to be used/img/System/HealthBar_1.png" type="Texture" id=3]
+[ext_resource path="res://assets to be used/img/System/HealthBar_2.png" type="Texture" id=4]
+[ext_resource path="res://assets to be used/img/System/HealthBar_3.png" type="Texture" id=5]
+
+
+
+
+[sub_resource type="Animation" id=1]
+resource_name = "die"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ false, true, false, true, false, true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TextureProgress:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:collision_layer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:collision_layer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 4 ]
+}
+
+[node name="Dummy" type="KinematicBody2D"]
+position = Vector2( 626.222, 415.943 )
+collision_layer = 4
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.02, 0.02 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -3.87946, -13.8182, -9.19342, -10.1932, -9.91809, -3.31824, -9.91809, -3.31824, -23.3239, -0.0682373, -23.2031, 1.93176, -20.3046, 4.55676, -10.5219, 9.30676, -7.74414, 19.1818, -9.31421, 29.4318, -7.74414, 30.8068, 10.4926, 31.0568, 11.821, 27.3068, 9.76788, 23.0568, 6.14471, 17.6818, 7.47321, 10.5568, 15.0819, 3.80676, 21.4829, 0.931763, 19.7921, -0.443237, 4.69543, -5.94324, 5.54083, -8.69324, 3.72925, -11.9432, 0.468384, -13.8182 )
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+anchor_right = 1.0
+margin_left = -21.1578
+margin_top = -19.1385
+margin_right = 16.4122
+margin_bottom = -15.1385
+value = 20.0
+rounded = true
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+nine_patch_stretch = true
+stretch_margin_left = 1
+stretch_margin_right = 1
+
+[node name="TextureProgress2" type="TextureProgress" parent="."]
+show_behind_parent = true
+anchor_right = 1.0
+margin_left = -21.1578
+margin_top = -19.1385
+margin_right = 16.4122
+margin_bottom = -15.1385
+value = 23.0
+rounded = true
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 5 )
+nine_patch_stretch = true
+stretch_margin_left = 1
+stretch_margin_right = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/die = SubResource( 1 )
+anims/hurt = SubResource( 2 )
