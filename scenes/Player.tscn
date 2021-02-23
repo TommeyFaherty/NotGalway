@@ -127,4 +127,6 @@ enabled = true
 position = Vector2( 74.1699, 298.656 )
 scale = Vector2( 0.38, 0.191 )
 enabled = true
+
+[node name="Inventory" type="Node2D" parent="."]
 [connection signal="body_entered" from="Body/Area2D" to="." method="_on_Area2D_body_entered"]

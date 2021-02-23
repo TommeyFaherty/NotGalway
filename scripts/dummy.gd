@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+var ITEM = preload("res://scenes/Item.tscn")
+
+
 onready var hp_bar = $TextureProgress
 onready var damage_bar = $TextureProgress2
 
@@ -17,7 +20,7 @@ func _physics_process(delta):
 func UpdateHp(new_hp):
 	old_hp = current_hp
 	current_hp += new_hp
-	print(current_hp)
+	#print(current_hp)
 	#When "new_hp" is negative (taking damage)
 	if new_hp < 0:
 		Hurt()
@@ -37,6 +40,9 @@ func Hurt():
 
 func Dead():
 	$AnimationPlayer.play("die")
+	var loot_drop = ITEM.instance()
+	get_parent().add_child(loot_drop)
+	loot_drop.position = self.position + Vector2(0,-20)
 	yield(get_tree().create_timer(3.0), "timeout")
 	queue_free()
 
@@ -53,7 +59,7 @@ func Hp():
 		current_hp = max_hp
 	#GREEN HP BAR
 	hp_bar.value = (current_hp / max_hp) * 100
-	print( (current_hp / max_hp) * 100)
+	#print( (current_hp / max_hp) * 100)
 	#RED DAMAGE BAR
 	damage_bar.value = (old_hp / max_hp) * 100
 	#RED DAMAGE BAR DELAY

@@ -62,5 +62,5 @@ func _check_is_grounded():
 
 
 func _on_Area2D_body_entered(body):
-	body.UpdateHp(-1)
+	body.UpdateHp(-5)
 	
