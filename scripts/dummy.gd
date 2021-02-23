@@ -57,7 +57,6 @@ func Dead():
 		get_parent().add_child(gold_drop)
 		gold_drop.position = self.position + Vector2(0,-10)
 		no_of_coins -= 1
-		print(no_of_coins)
 		yield(get_tree().create_timer(0.5), "timeout")
 		return
 		
@@ -65,6 +64,7 @@ func Dead():
 	#Remove the dummy from the game
 	yield(get_tree().create_timer(3.0), "timeout")
 	self.visible = false
+	
 
 
 

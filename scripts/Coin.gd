@@ -33,3 +33,4 @@ func _on_Area2D_body_entered(body):
 			$CollisionShape2D.disabled = true
 			$Area2D.monitoring = false
 			dead = true
+			get_parent().get_node("Bin").AddToBin(self.name)

@@ -27,6 +27,6 @@ func add_item(new_item, received_ammount):
 
 func GoldUpdate(new_gold):
 	var gold_update = new_gold
-	print(str(gold_update) + " gold added")
+	#print(str(gold_update) + " gold added")
 	player_gold += new_gold
 	#print(str(player_gold) + " gold currently in your pockets boi")
