@@ -4,6 +4,7 @@ extends Node2D
 var player_gold = 0
 var inventory = {}
 
+
 func _ready():
 	inventory["hp_potion"] = 999
 	inventory["chicken_wings"] = 23

@@ -6,6 +6,8 @@ extends RigidBody2D
 var coin_type = "golden"
 var coin_value = 0
 var rng = RandomNumberGenerator.new()
+#
+var dead = false
 
 
 func _ready():
@@ -24,8 +26,10 @@ func _physics_process(delta):
 
 func _on_Area2D_body_entered(body):
 	if body.collision_layer ==  2:
-		body.get_node("Inventory").GoldUpdate(coin_value)
-		#EXIT GAME
-		self.visible = false
-		$CollisionShape2D.disabled = true
-		$Area2D/CollisionShape2D.disabled = true
+		if dead == false:
+			body.get_node("Inventory").GoldUpdate(coin_value)
+			#EXIT GAME
+			self.visible = false
+			$CollisionShape2D.disabled = true
+			$Area2D.monitoring = false
+			dead = true
