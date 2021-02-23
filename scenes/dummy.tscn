@@ -1,9 +1,77 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/dummy.gd" type="Script" id=1]
 [ext_resource path="res://assets/img/characters/example/Dummy.png" type="Texture" id=2]
 [ext_resource path="res://assets/img/System/HealthBar_1.png" type="Texture" id=3]
 [ext_resource path="res://assets/img/System/HealthBar_2.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=2]
+resource_name = "die"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ false, true, false, true, false, true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TextureProgress:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "hurt"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true ]
+}
 
 [node name="dummy" type="KinematicBody2D"]
 position = Vector2( 626.222, 415.943 )
@@ -30,3 +98,7 @@ texture_progress = ExtResource( 4 )
 nine_patch_stretch = true
 stretch_margin_left = 1
 stretch_margin_right = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/die = SubResource( 2 )
+anims/hurt = SubResource( 1 )
