@@ -16,8 +16,12 @@ func EmptyBin():
 		var node_to_bin
 		
 		print("deleting... " + str(bin_list[1]))
-		#get_node(str(bin_list[1])).queue_free()
+		#print(bin_list[1])
+		#print(get_node(str(bin_list[1])))
+		get_parent().get_node(bin_list[1]).queue_free()
+		#get_parent().get_node("Player").queue_free()
 		bin_list.remove(1)
+		
 		
 		#print(bin_list[int(bin_list.size()) - 1])
 		#print(bin_list[1])
