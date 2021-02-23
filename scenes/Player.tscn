@@ -29,15 +29,15 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "attack",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": false,
 "name": "jump",
 "speed": 2.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": true,
@@ -87,6 +87,7 @@ animation = "idle"
 [node name="Area2D" type="Area2D" parent="Body"]
 position = Vector2( 61.6708, 281.062 )
 scale = Vector2( 2, 2 )
+monitoring = false
 collision_layer = 0
 collision_mask = 4
 
