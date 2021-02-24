@@ -28,7 +28,7 @@ func _physics_process(delta):
 func _on_Area2D_body_entered(body):
 	if body.collision_layer ==  2:
 		if dead == false:
-			body.get_node("PlayerControl").GoldUpdate(coin_value)
+			body.get_node("Control").GoldUpdate(coin_value)
 			#EXIT GAME
 			self.visible = false
 			$CollisionShape2D.disabled = true

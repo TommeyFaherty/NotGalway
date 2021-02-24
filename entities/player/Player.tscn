@@ -62,7 +62,9 @@ animations = [ {
 radius = 6.75171
 height = 14.3614
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"SAVE",
+]]
 position = Vector2( 61.6708, 281.061 )
 scale = Vector2( 2, 2 )
 collision_layer = 2
@@ -129,6 +131,6 @@ position = Vector2( 74.1699, 298.656 )
 scale = Vector2( 0.38, 0.191 )
 enabled = true
 
-[node name="PlayerControl" type="Node2D" parent="."]
+[node name="Control" type="Node2D" parent="."]
 script = ExtResource( 22 )
 [connection signal="body_entered" from="Body/Area2D" to="." method="_on_Area2D_body_entered"]

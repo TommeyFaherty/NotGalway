@@ -44,6 +44,7 @@ func save_data():
 	var save_dict = {
 		"parent" : get_parent().get_path(),
 		"filename"  : get_filename(),
+		"player_control" : 
 		"player_inventory" : inventory,
 		"player_gold" : player_gold,
 		"player_pos_x" : player_pos.x,
