@@ -21,7 +21,8 @@
 [ext_resource path="res://entities/player/example/walk_left/walk1.png" type="Texture" id=19]
 [ext_resource path="res://entities/player/example/walk_left/walk2.png" type="Texture" id=20]
 [ext_resource path="res://entities/player/example/walk_left/walk3.png" type="Texture" id=21]
-[ext_resource path="res://scripts/player_control.gd" type="Script" id=22]
+[ext_resource path="res://entities/player/player_control.gd" type="Script" id=22]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
