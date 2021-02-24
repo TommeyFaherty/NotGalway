@@ -46,9 +46,9 @@ func save():
 		"filename"  : get_parent().get_filename(), 
 		"player_inventory" : inventory,
 		"player_gold" : player_gold,
-		"player_pos_x" : player_pos.x,
-		"player_pos_y" : player_pos.y
+		"pos_x" : player_pos.x,
+		"pos_y" : player_pos.y
 	}
-	print(save_dict)
-	#return save()
+	#print(save_dict)
+	return save()
 	
