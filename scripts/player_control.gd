@@ -1,9 +1,12 @@
 extends Node2D
 
-
+#
 var player_gold = 0
 var inventory = {}
 var player_pos = Vector2()
+
+#SAVING
+var save_dict = {}
 
 func _ready():
 	inventory["hp_potion"] = 999
@@ -41,7 +44,7 @@ func GoldUpdate(new_gold):
 
 func save():
 	"""ADDING PROPERTIES TO THE SAVE DICTIONARY"""
-	var save_dict = {
+	save_dict = {
 		"parent" : get_parent().get_parent().get_path(),
 		"filename"  : get_parent().get_filename(), 
 		"player_inventory" : inventory,
@@ -50,5 +53,5 @@ func save():
 		"pos_y" : player_pos.y
 	}
 	#print(save_dict)
-	return save()
+	#return save()
 	

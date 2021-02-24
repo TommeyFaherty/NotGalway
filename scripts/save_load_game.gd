@@ -32,7 +32,9 @@ func SaveGame():
 		
 		#Call the nodes save function
 		print("Saving '%s' data..." % node.name)
-		var node_data = node.get_node("Control").save()
+		node.get_node("Control").save()
+		#Store the node's save dictionary
+		var node_data = node.get_node("Control").save_dict
 		print(node_data)
 
 		#Add the save data dictionary into the new save file
