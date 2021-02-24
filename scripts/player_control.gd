@@ -39,16 +39,16 @@ func GoldUpdate(new_gold):
 
 
 
-func save_data():
+func save():
 	"""ADDING PROPERTIES TO THE SAVE DICTIONARY"""
 	var save_dict = {
-		"parent" : get_parent().get_path(),
-		"filename"  : get_filename(),
-		"player_control" : 
+		"parent" : get_parent().get_parent().get_path(),
+		"filename"  : get_parent().get_filename(), 
 		"player_inventory" : inventory,
 		"player_gold" : player_gold,
 		"player_pos_x" : player_pos.x,
 		"player_pos_y" : player_pos.y
 	}
-	return save_data()
+	print(save_dict)
+	#return save()
 	

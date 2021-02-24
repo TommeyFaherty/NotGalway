@@ -35,7 +35,9 @@ tile_set = ExtResource( 3 )
 format = 1
 tile_data = PoolIntArray( 327685, 0, 0, 327686, 0, 0, 393230, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458765, 0, 0, 458766, 0, 0 )
 
-[node name="Dummy" parent="." instance=ExtResource( 4 )]
+[node name="Dummy" parent="." groups=[
+"SAVE",
+] instance=ExtResource( 4 )]
 
 [node name="Bin" type="Node2D" parent="."]
 script = ExtResource( 5 )

@@ -1,23 +1,43 @@
 extends Node2D
 
+
+
+
+
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		SaveGame()
+	if Input.is_action_just_pressed("ui_cancel"):
+		LoadGame()
 	
 	
 	
 	
 func SaveGame():
+	
 	#Creating SaveFile
 	var game_save = File.new()
 	game_save.open("res://IFYOUSEETHISTHENGAMEISSAVED.save", File.WRITE)
-	var save_nodes
 	
+	#Getting data from nodes that need to be saved
+	var save_nodes = get_tree().get_nodes_in_group("SAVE")
 	
-	
-	game_save.store_line(to_json(save_dict))
+	#Going through all the nodes that need to be saved
+	for node in save_nodes:
+		
+		#Checking if the node has a save function
+		if !node.get_node("Control"):
+			print("'%s' cannot save..." % node.name)
+			continue
+		
+		#Call the nodes save function
+		print("Saving '%s' data..." % node.name)
+		var node_data = node.get_node("Control").save()
+
+		#Add the save data dictionary into the new save file
+		game_save.store_line(to_json(node_data))
+		print("'%s' data_saved" % node.name )
 	game_save.close()
-	print("game saved WOOOOOOOOO!")
 
 
 
@@ -36,10 +56,10 @@ func LoadGame():
 		#new_object.position = Vector2(node_data["pos_x"],node_data["pos_y"])
 		"""
 		
-		for i in node_data.keys():
+		"""for i in node_data.keys():
 			if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_y":
 				continue
-			new_object.set("
+			new_object.set"""
 	
 	
 	
