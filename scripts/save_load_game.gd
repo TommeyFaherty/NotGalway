@@ -83,7 +83,7 @@ func LoadGame():
 			
 			#Add Properties to object e.g gold, inventory
 			new_object.get_node("Control").set(data, node_data[data])
-			print(" '%s' loaded! Here are it's propertiess..." % new_object.name)
+			print(" '%s' loaded! Here are it's properties..." % new_object.name)
 			print(node_data)
 	
 	
