@@ -14,7 +14,7 @@ func _ready():
 func EmptyBin():
 	if bin_list.size() > 1:
 		var node_to_bin
-		print("deleting... " + str(bin_list[1]))
+		#print("deleting... " + str(bin_list[1]))
 		get_parent().get_node(str(bin_list[1])).queue_free()
 		#print(get_node(bin_list[1]))
 		bin_list.remove(1)

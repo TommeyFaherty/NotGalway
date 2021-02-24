@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Not Galway"
-run/main_scene="res://menus/title_screen/TitleScreenMenu.tscn"
+run/main_scene="res://scenes/example/Root.tscn"
 config/icon="res://icon.png"
 
 [input]
@@ -44,5 +44,4 @@ E_key={
 
 [rendering]
 
-environment/default_clear_color=Color( 0.14902, 0.192157, 0.407843, 1 )
 environment/default_environment="res://default_env.tres"

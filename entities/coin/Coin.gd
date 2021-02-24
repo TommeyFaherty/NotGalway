@@ -13,7 +13,7 @@ var dead = false
 func _ready():
 	self.bounce = 100
 	$AnimationPlayer.play("Spinning")
-	print(self.name)
+	#print(self.name)
 
 func _physics_process(delta):
 	#RNG
