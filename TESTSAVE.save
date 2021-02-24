@@ -1,1 +1,1 @@
-{"filename":"res://entities/player/Player.tscn","parent":"/root/Root","player_gold":1121,"player_inventory":{"chicken_wings":23,"hp_potion":999},"pos_x":739.66095,"pos_y":534.299072}
+{"filename":"res://entities/player/Player.tscn","parent":"/root/Root","player_gold":100,"player_inventory":{"chicken_wings":23,"hp_potion":999},"pos_x":551.84967,"pos_y":427.401978}
