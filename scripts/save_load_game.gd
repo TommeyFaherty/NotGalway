@@ -42,21 +42,32 @@ func SaveGame():
 
 
 func LoadGame():
-	#READING THE SAVE FILE
+	#Reading the save file
 	var game_save = File.new()
+	#If no save file exists
 	if not game_save.file_exists("res://IFYOUSEETHISTHENGAMEISSAVED.save"):
 		print("NO SAVE DATA EXISTS")
+	#Removing current objects and loading new from save file
+	var load_nodes = get_tree().get_nodes_in_group("SAVE")
+	for node in load_nodes:
+		node.queue_free()
+	
+	
+	
+	
+	"""
 	game_save.open("res://IFYOUSEETHISTHENGAMEISSAVED.save", File.READ)
 	while game_save.get_position() < game_save.get_len():
 		var node_data = parse_json(game_save.get_len())
-		"""
+	"""
+	"""
 		var new_object = load(node_data["filename"]).instance()
 		get_node(node_data["parent"]).add_child(new_object)
 		#LOAD OBJECT POSITION
 		#new_object.position = Vector2(node_data["pos_x"],node_data["pos_y"])
 		"""
 		
-		"""for i in node_data.keys():
+	"""for i in node_data.keys():
 			if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_y":
 				continue
 			new_object.set"""
