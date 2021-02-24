@@ -65,8 +65,7 @@ func LoadGame():
 		
 		#Getting the saved dictionary for an in game object from the save file.
 		var node_data = parse_json(game_save.get_line())
-		print(node_data)
-		return
+		
 		#Loading the in game object
 		var new_object = load(node_data["filename"]).instance()
 		
@@ -77,9 +76,15 @@ func LoadGame():
 		new_object.position = Vector2(node_data["pos_x"],node_data["pos_y"])
 		
 		for data in node_data.keys():
+			
+			#Skip Position,Filename,Parent of Object
 			if data == "filename" or data == "parent" or data == "pos_x" or data == "pos_y":
 				continue
-			print(new_object.get_node("Control"))
+			
+			#Add Properties to object e.g gold, inventory
+			new_object.get_node("Control").set(data, node_data[data])
+			print(" '%s' loaded! Here are it's propertiess..." % new_object.name)
+			print(node_data)
 	
 	
 	
