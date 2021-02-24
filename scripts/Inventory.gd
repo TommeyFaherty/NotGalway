@@ -47,6 +47,8 @@ func GoldUpdate(new_gold):
 func SaveGame():
 	"""ADDING PROPERTIES TO THE SAVE DICTIONARY"""
 	var save_dict = {
+		"parent" : get_parent().get_path(),
+		"filename"  : get_filename(),
 		"current_player_inventory" : inventory,
 		"current_player_gold" : player_gold,
 		"current_player_pos_x" : player_pos.x,
@@ -67,4 +69,18 @@ func LoadGame():
 	var game_save = File.new()
 	if not game_save.file_exists("res://IFYOUSEETHISTHENGAMEISSAVED.save"):
 		print("NO SAVE DATA EXISTS")
+	game_save.open("res://IFYOUSEETHISTHENGAMEISSAVED.save", File.READ)
+	while game_save.get_position() < game_save.get_len():
+		var node_data = parse_json(game_save.get_len())
+		
+		var new_object = load(node_data["current_player_gold"]).instance()
+		get_node(node_data["parent"]).add_child(new_object)
+	
+	
+	
+	
+	
+	
+	
+	
 	
