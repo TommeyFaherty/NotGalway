@@ -6,9 +6,6 @@
 [ext_resource path="res://assets to be used/img/System/HealthBar_2.png" type="Texture" id=4]
 [ext_resource path="res://assets to be used/img/System/HealthBar_3.png" type="Texture" id=5]
 
-
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "die"
 length = 2.0

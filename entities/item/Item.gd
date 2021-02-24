@@ -17,5 +17,5 @@ func _on_Area2D_body_entered(body):
 			$Area2D.monitoring = false
 			dead = true
 			#Adding Item
-			body.get_node("Inventory").add_item(item_name,item_ammount)
+			body.get_node("PlayerControl").add_item(item_name,item_ammount)
 			get_parent().get_node("Bin").AddToBin(self.name)
