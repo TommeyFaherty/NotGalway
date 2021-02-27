@@ -5,14 +5,16 @@ const FIRST_SCENE = preload("res://scenes/example/Root.tscn")
 # When player is continuing game, Save file must remeber what scene they were on
 # From that a variable needs to be created and set with path to that scene
 
-onready var selectors : Array = []
+onready var selectors = [
+	$CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/selector,
+	$CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/selector,
+	$CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer/selector
+]
 var current_selection = 0
 	
 func _ready():
-	selectors[0] = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/selector
-	selectors[1] = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/selector
-	selectors[2] = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer/selector
 	set_current_selection(0)
+	print('ready')
 	
 func _process(delta):
 	if Input.is_action_just_pressed("ui_down") && current_selection < 2:
@@ -36,7 +38,7 @@ func handle_selection(_current_selection):
 
 func set_current_selection(_current_selection):
 	for selector in selectors:
-		selector = ""
+		selector.text = ""
 	
 	match current_selection:
 		0:
