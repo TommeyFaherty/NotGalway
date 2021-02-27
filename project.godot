@@ -21,12 +21,17 @@ _global_script_class_icons={
 [application]
 
 config/name="Not Galway"
-run/main_scene="res://scenes/example/Root.tscn"
+run/main_scene="res://menus/title_screen/TitleScreenMenu.tscn"
 config/icon="res://icon.png"
 
 [display]
 
-window/size/height=576
+window/size/width=320
+window/size/height=180
+window/size/test_width=960
+window/size/test_height=540
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [input]
 
