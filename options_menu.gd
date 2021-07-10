@@ -1,16 +1,14 @@
 extends Control
 
-const FIRST_SCENE = preload("res://scenes/example/Root.tscn")
-const SETTINGS_SCENE = preload("res://menus/title_screen/SettingsMenu.tscn")
+#const MENU_SCENE = load("res://menus/title_screen/TitleScreenMenu.tscn")
 
 # When player is continuing game, Save file must remeber what scene they were on
 # From that a variable needs to be created and set with path to that scene
 
 onready var selectors = [
-	$MarginContainer/CenterContainer/VBoxContainer/OptionsContainer/VBoxContainer/NewGameContainer/HBoxContainer/selector,
-	$MarginContainer/CenterContainer/VBoxContainer/OptionsContainer/VBoxContainer/ContinueContainer/HBoxContainer/selector,
-	$MarginContainer/CenterContainer/VBoxContainer/OptionsContainer/VBoxContainer/SettingsContainer/HBoxContainer/selector,
-	$MarginContainer/CenterContainer/VBoxContainer/OptionsContainer/VBoxContainer/ExitContainer/HBoxContainer/selector
+	$MarginContainer/CenterContainer/VBoxContainer/OptionContainer/VBoxContainer/CenterContainer/HBoxContainer/selector,
+	$MarginContainer/CenterContainer/VBoxContainer/OptionContainer/VBoxContainer/CenterContainer2/HBoxContainer/selector,
+	$MarginContainer/CenterContainer/VBoxContainer/OptionContainer/VBoxContainer/CenterContainer3/HBoxContainer/selector
 ]
 var current_selection = 0
 	
@@ -30,15 +28,13 @@ func _process(delta):
 
 func handle_selection(_current_selection):
 	if _current_selection == 0:
-		get_parent().add_child(FIRST_SCENE.instance())
+		#get_parent().add_child(MENU_SCENE.instance())
+		get_tree().change_scene("res://menus/title_screen/TitleScreenMenu.tscn")
 		queue_free()
 	elif _current_selection == 1:
-		print("Continue The Game")
-	elif _current_selection == 2:
-		get_parent().add_child(SETTINGS_SCENE.instance())
-		queue_free()
+# Add options menu here
 		print("Add Options")
-	elif _current_selection == 3:
+	elif _current_selection == 2:
 		print("Exit")
 
 func set_current_selection(_current_selection):

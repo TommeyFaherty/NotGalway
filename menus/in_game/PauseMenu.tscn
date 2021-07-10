@@ -1,0 +1,113 @@
+[gd_scene format=2]
+
+[node name="PauseMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+margin_right = 320.0
+margin_bottom = 180.0
+color = Color( 0.137255, 0.596078, 0.490196, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+margin_right = 320.0
+margin_bottom = 180.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
+margin_left = 125.0
+margin_top = 56.0
+margin_right = 194.0
+margin_bottom = 124.0
+
+[node name="TitleHeader" type="CenterContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
+margin_right = 69.0
+margin_bottom = 14.0
+
+[node name="Title" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/TitleHeader"]
+margin_left = 9.0
+margin_right = 60.0
+margin_bottom = 14.0
+text = "PAUSED"
+
+[node name="OptionContainer" type="CenterContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 69.0
+margin_bottom = 68.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer/OptionContainer"]
+margin_right = 69.0
+margin_bottom = 50.0
+
+[node name="ContinueContainer" type="CenterContainer" parent="MarginContainer/CenterContainer/VBoxContainer/OptionContainer/VBoxContainer"]
+margin_right = 69.0
+margin_bottom = 14.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer/OptionContainer/VBoxContainer/ContinueContainer"]
+margin_right = 69.0
+margin_bottom = 14.0
+
+[node name="selector" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/OptionContainer/VBoxContainer/ContinueContainer/HBoxContainer"]
+margin_right = 8.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 8, 0 )
+text = ">"
+
+[node name="option" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/OptionContainer/VBoxContainer/ContinueContainer/HBoxContainer"]
+margin_left = 12.0
+margin_right = 69.0
+margin_bottom = 14.0
+text = "Continue"
+
+[node name="SaveContainer" type="CenterContainer" parent="MarginContainer/CenterContainer/VBoxContainer/OptionContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 69.0
+margin_bottom = 32.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer/OptionContainer/VBoxContainer/SaveContainer"]
+margin_right = 69.0
+margin_bottom = 14.0
+
+[node name="selector" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/OptionContainer/VBoxContainer/SaveContainer/HBoxContainer"]
+margin_right = 8.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 8, 0 )
+text = ">"
+
+[node name="option" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/OptionContainer/VBoxContainer/SaveContainer/HBoxContainer"]
+margin_left = 12.0
+margin_right = 69.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 57, 0 )
+text = "Save"
+
+[node name="ExitContainer" type="CenterContainer" parent="MarginContainer/CenterContainer/VBoxContainer/OptionContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 69.0
+margin_bottom = 50.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer/OptionContainer/VBoxContainer/ExitContainer"]
+margin_right = 69.0
+margin_bottom = 14.0
+
+[node name="selector" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/OptionContainer/VBoxContainer/ExitContainer/HBoxContainer"]
+margin_right = 8.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 8, 0 )
+text = ">"
+
+[node name="option" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/OptionContainer/VBoxContainer/ExitContainer/HBoxContainer"]
+margin_left = 12.0
+margin_right = 69.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 57, 0 )
+text = "Exit"
