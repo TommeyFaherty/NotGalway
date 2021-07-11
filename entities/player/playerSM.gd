@@ -89,15 +89,19 @@ func _enter_state(new_state, old_state):
 		states.idle:
 			parent.anim_player.play("idle")
 		states.walk:
-			parent.anim_player.play("walk_left")
+			parent.anim_player.play("Run")
+			#parent.anim_player.play("walk_left")
 		states.run:
-			parent.anim_player.play("run_left")
+			parent.anim_player.play("Run")
 		states.jump:
-			parent.anim_player.play("jump")
+			print("jump")
+			#parent.anim_player.play("jump")
 		states.fall:
-			parent.anim_player.play("jump")
+			print("fall")
+			#parent.anim_player.play("jump")
 		states.attack:
-			parent.anim_player.play("attack")
+			print("attack")
+			#parent.anim_player.play("attack")
 	
 func _exit_state(old_state, new_state):
 	pass

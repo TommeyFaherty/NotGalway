@@ -7,5 +7,5 @@
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
-vframes = 5
 hframes = 6
+vframes = 5

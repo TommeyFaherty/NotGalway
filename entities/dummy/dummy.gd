@@ -23,6 +23,7 @@ func _physics_process(delta):
 	Hp()
 
 func UpdateHp(new_hp):
+	print("updating hp")
 	old_hp = current_hp
 	current_hp += new_hp
 	#print(current_hp)

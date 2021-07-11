@@ -3,12 +3,13 @@ extends KinematicBody2D
 const SLOPE_STOP = 64
 const GRAVITY = 200.0
 const WALK_SPEED = 100
-const JUMP_HEIGHT = -100 
+const JUMP_HEIGHT = -200 
 const UP =Vector2(0, -1)
 
 var velocity = Vector2()
 onready var raycasts = $Raycasts
-onready var anim_player = $Body/AnimatedSprite
+onready var anim_player = $Body/AnimationPlayer
+onready var bod = $Body/Sprite
 var is_grounded
 var is_running
 var move_direction
@@ -18,10 +19,10 @@ func _handle_move_input():
 	move_direction = -int(Input.is_action_pressed("ui_left")) + int(Input.is_action_pressed("ui_right"))
 	velocity.x = lerp(velocity.x, WALK_SPEED * move_direction, 0.2)
 	if move_direction > 0:
-		$Body/AnimatedSprite.flip_h = true
+		$Body/Sprite.flip_h = false
 		$Body/Area2D.rotation_degrees = 0
 	elif move_direction < 0:
-		$Body/AnimatedSprite.flip_h = false
+		$Body/Sprite.flip_h = true
 		$Body/Area2D.rotation_degrees = 180
 
 func _running_input():
@@ -58,9 +59,6 @@ func _check_is_grounded():
 			
 	return false
 	
-
-
-
 func _on_Area2D_body_entered(body):
 	body.UpdateHp(-5)
 	
